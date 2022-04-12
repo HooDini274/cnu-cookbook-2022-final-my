@@ -10,9 +10,7 @@ export function RecipeCard({ title, preparationTime, slug }) {
         <CardImg src={placeholder} alt="Preview" top />
         <CardBody>
           <CardTitle tag="h5">{title}</CardTitle>
-          <CardSubtitle>
-            {Math.floor(preparationTime / 60)} h {preparationTime % 60} min
-          </CardSubtitle>
+          <CardSubtitle>{Math.floor(preparationTime / 60)} h</CardSubtitle>
         </CardBody>
       </Link>
     </Card>
