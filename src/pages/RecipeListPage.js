@@ -24,7 +24,7 @@ export function RecipeListPage() {
       .catch((error) => setError(error))
       .finally(() => setLoading(false));
   }, []);
-
+  console.log(recipes);
   return (
     <Container>
       <h1>Recepty</h1>

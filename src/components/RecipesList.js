@@ -10,6 +10,7 @@ export function RecipesList({ recipes }) {
           <RecipeCard
             title={recipe.title}
             preparationTime={recipe.preparationTime}
+            sidedish={recipe.sideDish}
             slug={recipe.slug}
           />
         </Col>

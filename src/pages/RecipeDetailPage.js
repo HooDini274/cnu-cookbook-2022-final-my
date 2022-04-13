@@ -33,7 +33,9 @@ export function RecipeDetailPage() {
       <h1>{recipe.title}</h1>
       <Row>
         <Col lg={4}>
-          <h5>{recipe.preparationTime} min</h5>
+          <h5>
+            {recipe.preparationTime / 60} hod {recipe.preparationTime % 60} min
+          </h5>
           <List type="unstyled">
             {recipe.ingredients?.map((ingredient) => (
               <li key={ingredient._id}>
