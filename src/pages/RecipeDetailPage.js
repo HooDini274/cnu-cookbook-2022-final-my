@@ -27,15 +27,21 @@ export function RecipeDetailPage() {
   if (error) {
     return <Alert color="danger">Vyskytla se chyba při načítání dat</Alert>;
   }
-
+  const hours = Math.floor(recipe.preparationTime / 60);
+  const minutes = Math.floor(recipe.preparationTime % 60);
+  const showMinutes = minutes !== 0;
+  const showHours = hours !== 0;
+  const preparationTimeInHours = `${hours} h`;
+  const preparationTimeInMinutes = `${minutes} min`;
+  const prepTime = `${showHours ? preparationTimeInHours : ''}${
+    showMinutes ? preparationTimeInMinutes : ''
+  }`;
   return (
     <Container>
       <h1>{recipe.title}</h1>
       <Row>
         <Col lg={4}>
-          <h5>
-            {recipe.preparationTime / 60} hod {recipe.preparationTime % 60} min
-          </h5>
+          <h5> {prepTime}</h5>
           <List type="unstyled">
             {recipe.ingredients?.map((ingredient) => (
               <li key={ingredient._id}>
