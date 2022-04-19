@@ -33,7 +33,7 @@ export function RecipeDetailPage() {
   const showHours = hours !== 0;
   const preparationTimeInHours = `${hours} h`;
   const preparationTimeInMinutes = `${minutes} min`;
-  const prepTime = `${showHours ? preparationTimeInHours : ''}${
+  const prepTime = `${showHours ? preparationTimeInHours : ''} ${
     showMinutes ? preparationTimeInMinutes : ''
   }`;
   return (
