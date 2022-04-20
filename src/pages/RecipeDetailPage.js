@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom';
 import { Container, Spinner, Alert, Row, Col, List } from 'reactstrap';
+import { getPrepTime } from '../components/TimerOfRecipe';
 
 import { api } from '../api';
 
@@ -27,18 +28,27 @@ export function RecipeDetailPage() {
   if (error) {
     return <Alert color="danger">Vyskytla se chyba při načítání dat</Alert>;
   }
-  const hours = Math.floor(recipe.preparationTime / 60);
-  const minutes = Math.floor(recipe.preparationTime % 60);
-  const showMinutes = minutes !== 0;
-  const showHours = hours !== 0;
-  const preparationTimeInHours = `${hours} h`;
-  const preparationTimeInMinutes = `${minutes} min`;
-  const prepTime = `${showHours ? preparationTimeInHours : ''} ${
-    showMinutes ? preparationTimeInMinutes : ''
-  }`;
+  const prepTime = getPrepTime();
+
   return (
     <Container>
       <h1>{recipe.title}</h1>
+      <button>
+        <Link
+          to="/recipe/:slug/edit"
+          style={{ color: 'black', textDecoration: 'none' }}
+        >
+          Upravit
+        </Link>
+      </button>
+      <button className="recipe_deletebutton">
+        <Link
+          to="/recipe/:slug/edit"
+          style={{ color: 'black', textDecoration: 'none' }}
+        >
+          Vymazat
+        </Link>
+      </button>
       <Row>
         <Col lg={4}>
           <h5> {prepTime}</h5>

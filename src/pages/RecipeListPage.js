@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { Container, Spinner, Alert } from 'reactstrap';
+import { Link } from 'react-router-dom';
 
 import { api } from '../api';
 import { SearchInput } from '../components/SearchInput';
@@ -28,6 +29,14 @@ export function RecipeListPage() {
   return (
     <Container>
       <h1>Recepty</h1>
+      <button>
+        <Link
+          to="/recipe/:slug/edit"
+          style={{ color: 'black', textDecoration: 'none' }}
+        >
+          Nový recept
+        </Link>
+      </button>
       <SearchInput
         className="mb-4"
         value={searchValue}
